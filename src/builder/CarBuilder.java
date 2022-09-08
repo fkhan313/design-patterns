@@ -5,10 +5,12 @@ public class CarBuilder {
     private String make;
     private String model;
     private String color;
+
+    //optional fields
     private int year;
     private int wheel;
-    //optional fields
     private int airbags;
+    private Boolean sunRoof;
     private String infotainment;
 
 
@@ -46,7 +48,26 @@ public class CarBuilder {
         this.infotainment = infotainment;
         return this;
     }
+
+    public CarBuilder setSunRoof(Boolean sunRoof) {
+        this.sunRoof = sunRoof;
+        return this;
+    }
+
     public Car build (){
-        return new Car();
+        if (make==null) {
+            throw new IllegalArgumentException("make is a required field");
+        }
+
+        if (model==null) {
+            throw new IllegalArgumentException("model is a required field");
+        }
+
+        if (color==null) {
+            throw new IllegalArgumentException("color is a required field");
+        }
+
+
+        return new Car(make,model,color,year,wheel,airbags,sunRoof,infotainment);
     }
 }
