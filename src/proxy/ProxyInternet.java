@@ -8,6 +8,7 @@ public class ProxyInternet implements Internet{
     private static final List<String> bannedSites;
     private final Internet internet = new RealInternet();
 
+    //static block is used to initialize static variables
     static {
         bannedSites=new ArrayList<>();
         bannedSites.add("banned.com");
